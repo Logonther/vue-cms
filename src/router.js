@@ -6,21 +6,28 @@ import  VueRouter from 'vue-router'
 //3、使用路由模块
 Vue.use(VueRouter);
 //5、导入相关组件
-/*import Home from './components/home.vue'
-import Cart from './components/cart.vue'
-import Register from './components/children/register.vue'
-import User from './components/children/user.vue'*/
+import Home from './components/tabbar/home.vue'
+import Member from './components/tabbar/member.vue'
+import Shopcart from './components/tabbar/shopcart.vue'
+import Search from './components/tabbar/search.vue'
+import NewsList from './components/news/newsList.vue'
+import NewsInfo from './components/news/newsInfo.vue'
+
 //4、创建路由对象
-/*let router = new VueRouter({
+
+let router = new VueRouter({
+    //设置路由高亮显示
+    linkActiveClass:'mui-active',
     routes:[
         {path:'/',redirect:'/home'},
         {path:'/home',component:Home},
-        {path:'/cart',component:Cart,children:[
-                {path:'register',component:Register},
-                {path:'user',component:User},
-            ]},
+        {path:'/member',component:Member},
+        {path:'/shopcart',component:Shopcart},
+        {path:'/search',component:Search},
+        {path:'/home/newsList',component:NewsList},
+        {path:'/home/newsInfo/:id',component:NewsInfo},
     ]
-})*/
+})
 
 //最后：把路由对象暴露出去
 export default router
