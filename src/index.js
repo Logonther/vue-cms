@@ -18,9 +18,14 @@ Vue.use(VueResource);
 Vue.http.options.root = 'http://www.liulongbin.top:3005';
 //8、定义全局过滤器
 import moment from 'moment'
-Vue.filter('dateFormat',function (dataStr,pattern='YYYY-MM-DD') {
+Vue.filter('dateFormat',function (dataStr,pattern='YYYY-MM-DD HH:mm:ss') {
     return moment(dataStr).format(pattern);
 })
+//9、全局配置post提交方式为表单格式
+Vue.http.options.emulateJSON = true;
+//10、导入缩略图模块
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
 
 let vm = new Vue({
     el:'#app',

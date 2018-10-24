@@ -12,6 +12,10 @@ import Shopcart from './components/tabbar/shopcart.vue'
 import Search from './components/tabbar/search.vue'
 import NewsList from './components/news/newsList.vue'
 import NewsInfo from './components/news/newsInfo.vue'
+import PhotoList from './components/photos/photoList.vue'
+import PhotoInfo from './components/photos/photoInfo.vue'
+import GoodsList from './components/goods/goodsList.vue'
+import GoodsInfo from './components/goods/goodsInfo.vue'
 
 //4、创建路由对象
 
@@ -26,6 +30,10 @@ let router = new VueRouter({
         {path:'/search',component:Search},
         {path:'/home/newsList',component:NewsList},
         {path:'/home/newsInfo/:id',component:NewsInfo},
+        {path:'/home/photoList',component:PhotoList},
+        {path:'/home/photoInfo/:id',component:PhotoInfo},
+        {path:'/home/goodsList',component:GoodsList},
+        {path:'/home/goodsInfo/:id',component:GoodsInfo,name:'goodsInfo'},
     ]
 })
 
