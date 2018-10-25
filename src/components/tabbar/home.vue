@@ -1,11 +1,7 @@
 <template>
     <div>
         <!--轮播图区域-->
-        <mt-swipe :auto="4000">
-            <mt-swipe-item v-for="item in bannerList" :key="item.id">
-                <img :src="item.img" alt="">
-            </mt-swipe-item>
-        </mt-swipe>
+        <swiper :bannerList="bannerList" :isFull="true"></swiper>
         <!--6宫格区域-->
         <ul class="mui-table-view mui-grid-view mui-grid-9">
             <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/newsList">
@@ -32,9 +28,13 @@
 
 <script>
     import {Toast} from 'mint-ui'
+    import swiper from '../subcomponents/swiper.vue'
 
     export default {
         name: "home",
+        components:{
+            swiper
+        },
         created(){
             this.getBanner();
         },
@@ -61,13 +61,6 @@
 </script>
 
 <style scoped lang="scss">
-    .mint-swipe{
-        height: 200px;
-        img{
-            width: 100%;
-            height: 100%;
-        }
-    }
     .mui-grid-view.mui-grid-9 {
         background-color: white;
         img{
