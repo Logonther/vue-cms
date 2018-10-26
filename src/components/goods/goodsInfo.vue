@@ -30,14 +30,6 @@
                     </p>
                 </div>
             </div>
-            <!--
-            分析: 加入购物车时候，怎么拿到选择的数量
-            1.按钮属于goodsInfo页面, 数量属于number页面
-            2.传值：子传父
-            3.其本质：父向子传递方法，子调用这个方法，同时把数据当作参数传递给这个方法
-            4.子组件什么时候把值传给父组件? 当数字改变的时候，用change事件
-            5.设置最大值: 父传子
-            -->
         </div>
         <!--商品参数区域-->
         <div class="mui-card">
@@ -91,8 +83,6 @@
                             item.img = item.src;
                         });
                         this.banner = result.body.message;
-                        //分析：为什么轮播图样式很怪
-                        //首页中的轮播图使用的是百分百宽度
                     }
                 });
             },
@@ -115,6 +105,13 @@
             //点击添加购物车
             addShopcar(){
                 this.flag = !this.flag;
+                let obj = {
+                    id:this.id,
+                    count:this.selectedCount,
+                    price:this.goodsinfo.sell_price,
+                    selected:true,
+                };
+                this.$store.commit('addToCart',obj);
             },
 
             beforeEnter(el){
@@ -122,12 +119,6 @@
             },
             enter(el,done){
                 el.offsetWidth;
-                /*
-                * 分析小球优化思路：
-                * 1、问题：每个屏幕的分辨率都不同
-                * 2、解决思路：动态计算这个坐标值，先得到微标和小球的横纵坐标，求差
-                * 3、怎么
-                * */
                 //获取小球位置
                 const ball = document.querySelector('.ball').getBoundingClientRect();
                 //console.log(ball);
